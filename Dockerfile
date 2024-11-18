@@ -5,7 +5,7 @@ FROM jboss/wildfly:latest
 WORKDIR /opt/jboss/wildfly/standalone/deployments/ROOT/
 
 # JSP 파일과 설정 복사
-COPY ROOT/ /opt/jboss/wildfly/standalone/deployments/ROOT/
+COPY first/ROOT/ /opt/jboss/wildfly/standalone/deployments/ROOT/
 
 # JBoss 실행
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
