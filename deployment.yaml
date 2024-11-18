@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: windfksl/my-app-image:v1.0.0
+        image: windfksl/my-app:v1.0.0
         ports:
         - containerPort: 8080
 
