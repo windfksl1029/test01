@@ -25,6 +25,6 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: /first
           push: true
           tags: windfksl/my-app:v1.0.0
