@@ -8,6 +8,6 @@ spec:
     app: my-app           # Pod의 label과 매칭
   ports:
     - protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 8080      # Pod의 containerPort와 일치
   type: ClusterIP
