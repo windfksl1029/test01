@@ -2,10 +2,11 @@
 FROM jboss/wildfly:latest
 
 # 작업 디렉토리 설정
-WORKDIR /opt/jboss/wildfly/standalone/deployments/ROOT/
+WORKDIR /opt/jboss/wildfly/standalone/deployments/
 
-# JSP 파일과 설정 복사
-COPY ROOT/ /opt/jboss/wildfly/standalone/deployments/ROOT/
+# Exploded WAR 디렉토리 생성
+RUN mkdir -p my-app.war
+COPY webapp/ /opt/jboss/wildfly/standalone/deployments/my-app.war/
 
 # JBoss 실행
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
