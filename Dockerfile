@@ -5,8 +5,8 @@ FROM jboss/wildfly:latest
 WORKDIR /opt/jboss/wildfly/standalone/deployments/
 
 # Exploded WAR 디렉토리 생성
-RUN mkdir -p my-app.war
-COPY ROOT/ /opt/jboss/wildfly/standalone/deployments/my-app.war/
+RUN mkdir -p ROOT.war
+COPY ROOT/ /opt/jboss/wildfly/standalone/deployments/ROOT.war/
 
 # JBoss 실행
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
