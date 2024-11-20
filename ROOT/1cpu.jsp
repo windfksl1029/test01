@@ -1,5 +1,5 @@
 <%
-    int iterations = 30001;
+    int iterations = 500001;
     String result = "";
 
     long startTime = System.currentTimeMillis();
