@@ -7,7 +7,7 @@
     <TITLE>Session Clustering Test</TITLE>
 </head>
 <body>
-<h1>ReVsion01</h1>
+<h1>ReVsion02</h1>
 <%
     Integer ival = (Integer)session.getAttribute("_session_counter");
  
