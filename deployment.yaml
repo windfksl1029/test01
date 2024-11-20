@@ -17,5 +17,7 @@ spec:
         image: windfksl/my-app:v1.0.0
         ports:
         - containerPort: 80
+      nodeSelector:
+        workload: app
 
 # Testing Git push functionality
