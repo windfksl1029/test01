@@ -1,0 +1,8 @@
+
+{
+  "auths": {
+    "quay.apps.ocp.komsco.co.kr": {
+      "auth": "cmVkaGF0OnJlZGhhdDExQCU"
+    }
+  }
+}
