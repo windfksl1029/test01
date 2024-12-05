@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: first
+  template:
+    metadata:
+      labels:
+        app: first
+    spec:
+      containers:
+      - name: first-container
+        image: quay.apps.ocp.komsco.co.kr/komsco/first:latest
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: quay-registry-secret
