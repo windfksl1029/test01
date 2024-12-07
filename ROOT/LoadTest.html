@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Load Test</title>
+</head>
+<body>
+    <h1>Auto Load Test Page</h1>
+    <div id="status">Initializing...</div>
+
+    <script>
+        const targetUrl = "http://192.168.219.102:8180";
+        const requestInterval = 200;
+        const cpuLoadThreads = 4;
+
+function sendTraffic() {
+    setInterval(() => {
+        fetch(targetUrl, { mode: 'cors' })
+            .then(response => {
+                console.log(`Request sent: Status ${response.status}`);
+                document.getElementById('status').innerText = `Traffic Sent: Status ${response.status}`;
+            })
+            .catch(error => {
+                console.error(`Error: ${error.message}`);
+                document.getElementById('status').innerText = `Error: ${error.message}`;
+            });
+    }, requestInterval);
+}
+
+        function generateCpuLoad() {
+            for (let i = 0; i < cpuLoadThreads; i++) {
+                const worker = new Worker(URL.createObjectURL(new Blob([`
+                    while (true) {
+                        let load = 0.0;
+                        for (let j = 0; j < 1000000; j++) {
+                            load += Math.sqrt(j);
+                        }
+                    }
+                `], { type: 'application/javascript' })));
+                console.log('CPU load worker started');
+            }
+        }
+
+        window.onload = () => {
+            document.getElementById('status').innerText = "Load test started...";
+            sendTraffic();
+            generateCpuLoad();
+        };
+    </script>
+</body>
+</html>
+
