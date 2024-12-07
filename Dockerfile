@@ -13,7 +13,9 @@ COPY standalone.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml
 RUN mkdir -p /opt/jboss/wildfly/agent.java
 
 COPY agent/ /opt/jboss/wildfly/agent.java
+USER root
 RUN chown -R jboss:jboss /opt/jboss/wildfly/agent.java
+USER jboss
 # Exploded WAR 디렉토리 생성
 RUN mkdir -p /opt/jboss/wildfly/standalone/deployments/ROOT.war
 
