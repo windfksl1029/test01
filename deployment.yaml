@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: first
+  name: index
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: first
+      app: index
   template:
     metadata:
       labels:
-        app: first
+        app: index
     spec:
       containers:
-      - name: first-container
-        image: quay.apps.ocp.komsco.co.kr/komsco/first:latest
+      - name: index-container
+        image: quay.apps.ocp.komsco.co.kr/komsco/index:latest
         ports:
         - containerPort: 80
       imagePullSecrets:
