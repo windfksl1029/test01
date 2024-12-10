@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>통합 페이지</title>
+    <title>통합 페이지2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,16 +53,17 @@
 
 <div class="navbar">
     <!-- 네비게이션 버튼 -->
-    <a href="http://192.168.219.103:8280/login.jsp" target="contentFrame">로그인 페이지</a>
-    <a href="http://192.168.219.103:8380/board.jsp" target="contentFrame">게시판</a>
-    <a href="http://192.168.219.103:8480/search.jsp" target="contentFrame">검색 페이지</a>
+    <a href="http://route-login-app.apps.ocp.komsco.co.kr/login.jsp" target="contentFrame">로그인 페이지</a>
+    <a href="http://route-board-app.apps.ocp.komsco.co.kr/board.jsp" target="contentFrame">게시판</a>
+    <a href="http://route-search-app.apps.ocp.komsco.co.kr/search.jsp" target="contentFrame">검색 페이지</a>
 </div>
 
 <div class="iframe-container">
     <!-- iFrame 영역 -->
-    <iframe name="contentFrame" src="http://192.168.219.103:8280/login.jsp"></iframe>
+    <iframe name="contentFrame" src="http://route-login-app.apps.ocp.komsco.co.kr/login.jsp"></iframe>
 </div>
+
+
 
 </body>
 </html>
-
