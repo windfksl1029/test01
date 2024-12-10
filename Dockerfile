@@ -4,20 +4,10 @@ FROM jboss/wildfly:latest
 # 작업 디렉토리 설정
 WORKDIR /opt/jboss/wildfly/standalone/
 
-# 수정된 standalone.conf 복사
-COPY standalone.conf /opt/jboss/wildfly/bin/standalone.conf
-
 # 수정된 standalone.xml 복사
 COPY standalone.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml
 
-RUN mkdir -p /opt/jboss/wildfly/agent.java
 
-COPY agent/ /opt/jboss/wildfly/agent.java
-USER root
-RUN chown -R jboss:jboss /opt/jboss/wildfly/agent.java
-RUN chmod -R 777 /opt/jboss/wildfly/agent.java
-
-USER jboss
 # Exploded WAR 디렉토리 생성
 RUN mkdir -p /opt/jboss/wildfly/standalone/deployments/ROOT.war
 
