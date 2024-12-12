@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: Demonstration
+  name: demonstration
   namespace: app
 spec:
   selector:
-    app: Demonstration
+    app: demonstration
   ports:
     - protocol: TCP
       port: 80
