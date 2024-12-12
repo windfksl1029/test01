@@ -1,28 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: index
+  name: Demonstration
 spec:
   selector:
     matchLabels:
-      app: index
+      app: Demonstration
   template:
     metadata:
       labels:
-        app: index
+        app: Demonstration
     spec:
       nodeSelector:
         dtarget: worker
       containers:
-      - name: index-container
-        image: quay.apps.ocp.komsco.co.kr/komsco/index:latest
-        resources:
-          requests:
-            cpu: "1000m"
-            memory: "1Gi"
-          limits:
-            cpu: "2000m"
-            memory: "2Gi"
+      - name: Demonstration-container
+        image: quay.apps.ocp.komsco.co.kr/komsco/Demonstration:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
