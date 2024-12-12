@@ -9,22 +9,13 @@
 <body>
 <h1>Session Clustering Test</h1>
 <h2 style="font-size: 48px; color: red; text-align: center;">고생하셨습니다!</h2>
-<%
-    Integer ival = (Integer)session.getAttribute("_session_counter");
 
-    if(ival==null) {
-        ival = new Integer(1);
-    }
-    else {
-        ival = new Integer(ival.intValue() + 1);
-    }
-    session.setAttribute("_session_counter", ival);
-    System.out.println("here~~~~");
+<%
+    // 서버 호스트 이름 가져오기
+    String hostname = java.net.InetAddress.getLocalHost().getHostName();
 %>
-Session Counter = [<b> <%= ival %> </b>]<p>
-<a href="./sample.jsp">[Reload]</a>
-<p>
-Current Session ID : <%= request.getRequestedSessionId() %><br />
+
+Hostname: <b><%= hostname %></b><p>
+
 </body>
 </html>
-
