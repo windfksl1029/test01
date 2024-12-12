@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Demonstration
+  name: demonstration
 spec:
   selector:
     matchLabels:
-      app: Demonstration
+      app: demonstration
   template:
     metadata:
       labels:
-        app: Demonstration
+        app: demonstration
     spec:
       nodeSelector:
         dtarget: worker
       containers:
-      - name: Demonstration-container
-        image: quay.apps.ocp.komsco.co.kr/komsco/Demonstration:latest
+      - name: demonstration-container
+        image: quay.apps.ocp.komsco.co.kr/komsco/demonstration:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
