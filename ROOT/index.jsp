@@ -1,69 +1,30 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="ko">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>통합 페이지2</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fc;
-        }
-
-        .navbar {
-            background-color: #4CAF50;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            padding: 8px 15px;
-            border-radius: 5px;
-        }
-
-        .navbar a:hover {
-            background-color: #45a049;
-        }
-
-        .iframe-container {
-            width: 100%;
-            height: calc(100vh - 50px); /* 상단 네비게이션 높이를 제외한 화면 */
-            border: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Session Clustering Test</TITLE>
 </head>
 <body>
+<h1>Session Clustering Test</h1>
+<h2 style="font-size: 48px; color: red; text-align: center;">고생하셨습니다!</h2>
+<%
+    Integer ival = (Integer)session.getAttribute("_session_counter");
 
-<div class="navbar">
-    <!-- 네비게이션 버튼 -->
-    <a href="http://route-login-app.apps.ocp.komsco.co.kr/login.jsp" target="contentFrame">로그인 페이지</a>
-    <a href="http://route-board-app.apps.ocp.komsco.co.kr/board.jsp" target="contentFrame">게시판</a>
-    <a href="http://route-search-app.apps.ocp.komsco.co.kr/search.jsp" target="contentFrame">검색 페이지</a>
-</div>
-
-<div class="iframe-container">
-    <!-- iFrame 영역 -->
-    <iframe name="contentFrame" src="http://route-login-app.apps.ocp.komsco.co.kr/login.jsp"></iframe>
-</div>
-
-
-
+    if(ival==null) {
+        ival = new Integer(1);
+    }
+    else {
+        ival = new Integer(ival.intValue() + 1);
+    }
+    session.setAttribute("_session_counter", ival);
+    System.out.println("here~~~~");
+%>
+Session Counter = [<b> <%= ival %> </b>]<p>
+<a href="./sample.jsp">[Reload]</a>
+<p>
+Current Session ID : <%= request.getRequestedSessionId() %><br />
 </body>
 </html>
+
