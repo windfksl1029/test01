@@ -1,10 +1,10 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: route-test05
+  name: route-test01
   namespace: app
 spec:
   path: /
   to:
     kind: Service
-    name: 'test05'
+    name: 'test01'
