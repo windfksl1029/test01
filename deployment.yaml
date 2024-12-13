@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test05
+  name: test01
 spec:
   selector:
     matchLabels:
-      app: test05
+      app: test01
   template:
     metadata:
       labels:
-        app: test05
+        app: test01
     spec:
       nodeSelector:
         dtarget: worker
       containers:
-      - name: test05-container
-        image: quay.apps.ocp.komsco.co.kr/komsco/test05:latest
+      - name: test01-container
+        image: quay.apps.ocp.komsco.co.kr/komsco/test01:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
